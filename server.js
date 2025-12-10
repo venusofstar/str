@@ -26,7 +26,7 @@ app.get("/:channelId/manifest.mpd", (req, res) => {
   const { channelId } = req.params;
 
   // URL without AuthInfo
-  const goToURL = `http://143.44.136.67:6060/001/2/ch0000009099000000${channelId}/manifest.mpd?JITPDRMType=Widevine&virtualDomain=001.live_hls.zte.com&m4s_min=1`;
+  const goToURL = `http://143.44.136.67:6060/001/2/ch0000009099000000${channelId}/manifest.mpd?JITPDRMType=Widevine&virtualDomain=001.live_hls.zte.com&m4s_min=1&nocache=1&ts=20251211`;
 
   res.redirect(goToURL);
 });
