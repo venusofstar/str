@@ -1,0 +1,21 @@
+{
+  "name": "authinfo-proxy",
+  "version": "1.0.0",
+  "description": "Simple IPTV manifest proxy",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "proxy",
+    "iptv",
+    "manifest",
+    "mpd"
+  ],
+  "author": "Saver Grand",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
