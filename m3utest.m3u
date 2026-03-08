@@ -1,0 +1,7 @@
+#EXTM3U
+
+#EXTINF:-1 tvg-name="TapGo Live" group-title="Sports",TapGo Live
+https://raw.githubusercontent.com/venusofstar/str/refs/heads/main/testigtapc.m3u8
+
+#EXTINF:-1 tvg-name="TapGo Live" group-title="Sports",TapGo Live
+https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/playlist.m3u8?hdnea=st=1772955200~exp=1772955240~acl=*hls/live/2001903/300024-317970/*!*hls/live/2001903-b/300024-317970-b/*~id=6f33ed7d-29b0-4c66-b66b-20ca084afd3c~data=dWlkPVc5dVJhanxiYjFlZDQ2Ny1hODRhLTQ1Y2EtOGMyNS0wNGI1NmU1NGYzZWEmaXA9MTEyLjIwMS45Ni4xMjYmZXhwPTE3NzMwNDE2NDAmZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=e779e68354cd5f288032f555b8a14662ea69ce68b273cdbb069785add3878ad1&opId=325&cc=PH&ua=TW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NDsgcnY6MTQ4LjApIEdlY2tvLzIwMTAwMTAxIEZpcmVmb3gvMTQ4LjA%3D&sd=PH-METRO+MANILA&startTime=1772294400&endTime=1930147200
