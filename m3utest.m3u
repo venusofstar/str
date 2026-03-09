@@ -1,7 +1,57 @@
 #EXTM3U
 
-#EXTINF:-1 tvg-name="TapGo Live" group-title="Sports",TapGo Live
-https://raw.githubusercontent.com/venusofstar/str/refs/heads/main/testigtapc.m3u8
 
-#EXTINF:-1 tvg-name="TapGo Live" group-title="Sports",TapGo Live
-https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/playlist.m3u8?hdnea=st=1772955200~exp=1772955240~acl=*hls/live/2001903/300024-317970/*!*hls/live/2001903-b/300024-317970-b/*~id=6f33ed7d-29b0-4c66-b66b-20ca084afd3c~data=dWlkPVc5dVJhanxiYjFlZDQ2Ny1hODRhLTQ1Y2EtOGMyNS0wNGI1NmU1NGYzZWEmaXA9MTEyLjIwMS45Ni4xMjYmZXhwPTE3NzMwNDE2NDAmZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=e779e68354cd5f288032f555b8a14662ea69ce68b273cdbb069785add3878ad1&opId=325&cc=PH&ua=TW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NDsgcnY6MTQ4LjApIEdlY2tvLzIwMTAwMTAxIEZpcmVmb3gvMTQ4LjA%3D&sd=PH-METRO+MANILA&startTime=1772294400&endTime=1930147200
+#EXTINF:-1 tvg-name="AMC HD AVATEL" group-title="AVATEL",AMC HD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=83a2d96236be4b998d82eb9d3c31fece:05fd0d7aefe6ab0ac65f42eee6e44ce36841b3a51e774da8864ee4eff5c9b7cb
+https://mad02.cdn.avatel.tv/live/eds/amc/MPEG-DASH_Scrambled_High/amc.mpd
+
+#EXTINF:-1 tvg-name="AMC Crime FHD AVATEL" group-title="AVATEL",AMC Crime FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=48cb9a27ec01493eb77067054ade361c:8d9960273cf5133d719dd1820efdc234b530311b2b0d4ed78970e0b188fcc026
+https://mad02.cdn.avatel.tv/live/eds/amccrime/MPEG-DASH_Scrambled_High/amccrime.mpd
+
+#EXTINF:-1 tvg-name="AMC Break FHD AVATEL" group-title="AVATEL",AMC Break FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=3f0a0e814f074ad29e91a4a3799be429:997ec040b6e1ae7e1267c38d91b9d204
+https://mad02.cdn.avatel.tv/live/eds/amcbreak/MPEG-DASH_Scrambled_High/amcbreak.mpd
+
+#EXTINF:-1 tvg-name="A Punt FHD AVATEL" group-title="AVATEL",A Punt FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=522546aba7ac487186eb9cc96c9bb0ba:8b4eca2caddf5b568deed6b51c243b13052f3c13394c4dadb0680540b293e789
+https://mad02.cdn.avatel.tv/live/eds/apunt/MPEG-DASH_Scrambled_High/apunt.mpd
+
+#EXTINF:-1 tvg-name="Andalucia TV AVATEL" group-title="AVATEL",Andalucia TV
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=b145beac8f3b4fe69b20af6a76ebf0a3:e3ffd9020ec21c9ef7fbc8153d501e7be9033d2c47f848b89889fca7f1fb8947
+https://mad02.cdn.avatel.tv/live/eds/andaluciatv/MPEG-DASH_Scrambled_High/andaluciatv.mpd
+
+#EXTINF:-1 tvg-name="Antena 3 FHD AVATEL" group-title="AVATEL",Antena 3 FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=bd31650876e34b919b0d9dbcda159c9a:ad302ffddac2628ec018340b6264f473e68380f93d514a19983277e66c36c55c
+https://mad02.cdn.avatel.tv/live/eds/antena3/MPEG-DASH_Scrambled_High/antena3.mpd
+
+#EXTINF:-1 tvg-name="Aragon TV FHD AVATEL" group-title="AVATEL",Aragon TV FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=082b173306c042f0af58293abbd72e8b:cd68b8f6e1d94baf4877f5ac707e17177e8433fbd4f84beeac095446bfbfec8e
+https://mad02.cdn.avatel.tv/live/eds/aragontv/MPEG-DASH_Scrambled_High/aragontv.mpd
+
+#EXTINF:-1 tvg-name="Atreseries FHD AVATEL" group-title="AVATEL",Atreseries FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=ff1d0458540e4d1fa36e67e9b2862f8c:07a16a13fc76bd46d2de52a48b79978bcfc6ed88ff2240b98ff69bb7976bb8e2
+https://mad02.cdn.avatel.tv/live/eds/atreseries/MPEG-DASH_Scrambled_High/atreseries.mpd
+
+#EXTINF:-1 tvg-name="AXN FHD AVATEL" group-title="AVATEL",AXN FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=27f4d3c149114a3693abb9c51023c7d4:9f6a2514e14c716a1973baa3327e1809317a7c20e6a449f0b82ea1a066c56489
+https://mad02.cdn.avatel.tv/live/eds/axn/MPEG-DASH_Scrambled_High/axn.mpd
+
+#EXTINF:-1 tvg-name="AXN Movies FHD AVATEL" group-title="AVATEL",AXN Movies FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=0a6b52e3200d409db941741f95967109:0627805e9890a5b129f6238195f3840e7e9362f30481492da0e3645a9ba62308
+https://mad02.cdn.avatel.tv/live/eds/axnmovies/MPEG-DASH_Scrambled_High/axnmovies.mpd
+
+#EXTINF:-1 tvg-name="Be Mad FHD AVATEL" group-title="AVATEL",Be Mad FHD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=70c2bde70d194e14b86bec05f363f90d:7d668a342a4abb71f45b0039bd091a65c0c20a222eaf47a38fe794260c4a9ef8
+https://mad02.cdn.avatel.tv/live/eds/bemadtv/MPEG-DASH_Scrambled_High/bemadtv.mpd
