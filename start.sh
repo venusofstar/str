@@ -2,21 +2,29 @@
 
 mkdir -p public
 
-STREAM="https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/playlist.m3u8?hdnea=st=1773203874~exp=1773203914~acl=*hls/live/2001903/300024-317970/*!*hls/live/2001903-b/300024-317970-b/*~id=72d4f6fb-e8f7-4ca2-b9d1-9ed081d23b40~data=dWlkPWNGaDZGenw2YzcyNmIzMS03NDAxLTRkMDgtYWM1Zi1jNDFiOWFiYzU0NWUmaXA9MTgwLjE5MC4xNzIuNDEmZXhwPTE3NzMyOTAzMTQmZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=8880b1413117c0d089083f6c638aa7533e3aa4d9d92675b24929608ad01b5f7a&opId=325&cc=PH"
+VIDEO="https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_3000/chunklist_video.m3u8?hdntl=exp=1773235904~acl=%2f*~id=febcca64-28af-4955-bae5-6563ffb1fe33~data=hdntl,dWlkPVc5dVJhanxiYjFlZDQ2Ny1hODRhLTQ1Y2EtOGMyNS0wNGI1NmU1NGYzZWEmaXA9MTEyLjIwMS45Ni4xMjYmZXhwPTE3NzMyMzU5MzEmZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=32e888338559c3d5c62edf696d6839e035d69097f5108e03c82d355694a1e2b0"
+
+AUDIO="https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_4500/chunklist_audio.m3u8?hdntl=exp=1773235904~acl=%2f*~id=febcca64-28af-4955-bae5-6563ffb1fe33~data=hdntl,dWlkPVc5dVJhanxiYjFlZDQ2Ny1hODRhLTQ1Y2EtOGMyNS0wNGI1NmU1NGYzZWEmaXA9MTEyLjIwMS45Ni4xMjYmZXhwPTE3NzMyMzU5MzEmZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=32e888338559c3d5c62edf696d6839e035d69097f5108e03c82d355694a1e2b0"
 
 ffmpeg \
--user_agent "Mozilla/5.0 (X11; Linux x86_64)" \
+-user_agent "Mozilla/5.0" \
 -loglevel warning \
+-fflags +genpts+igndts \
 -reconnect 1 \
 -reconnect_streamed 1 \
 -reconnect_delay_max 5 \
--fflags +genpts+igndts \
 -thread_queue_size 1024 \
--i "$STREAM" \
+-i "$VIDEO" \
+-thread_queue_size 1024 \
+-i "$AUDIO" \
 -map 0:v:0 \
--map 0:a:0 \
+-map 1:a:0 \
 -c:v copy \
--c:a copy \
+-c:a aac \
+-b:a 128k \
+-ar 48000 \
+-af "aresample=async=1000:first_pts=0" \
+-max_muxing_queue_size 2048 \
 -f hls \
 -hls_time 3 \
 -hls_list_size 6 \
