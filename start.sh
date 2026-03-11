@@ -2,8 +2,9 @@
 
 mkdir -p public
 
-VIDEO="https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_3000/chunklist_video.m3u8?hdntl=..."
-AUDIO="https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_4500/chunklist_audio.m3u8?hdntl=..."
+VIDEO="https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_3000/chunklist_video.m3u8?hdntl=exp=1773235904hmac=32e888338559c3d5c62edf696d6839e035d69097f5108e03c82d355694a1e2b0"
+
+AUDIO="https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_4500/chunklist_audio.m3u8?hdntl=exp=1773235904hmac=32e888338559c3d5c62edf696d6839e035d69097f5108e03c82d355694a1e2b0"
 
 ffmpeg \
 -user_agent "Mozilla/5.0" \
