@@ -8,14 +8,14 @@ AUDIO="https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchang
 
 ffmpeg \
 -user_agent "Mozilla/5.0" \
--loglevel error \
+-loglevel warning \
+-fflags +genpts+igndts \
 -reconnect 1 \
 -reconnect_streamed 1 \
 -reconnect_delay_max 5 \
--fflags +genpts \
--thread_queue_size 2048 \
+-thread_queue_size 1024 \
 -i "$VIDEO" \
--thread_queue_size 2048 \
+-thread_queue_size 1024 \
 -i "$AUDIO" \
 -map 0:v:0 \
 -map 1:a:0 \
@@ -23,9 +23,12 @@ ffmpeg \
 -c:a aac \
 -b:a 128k \
 -ar 48000 \
--af aresample=async=1 \
+-af "aresample=async=1000:first_pts=0" \
+-max_muxing_queue_size 2048 \
 -f hls \
 -hls_time 3 \
--hls_list_size 8 \
--hls_flags delete_segments+independent_segments \
+-hls_list_size 6 \
+-hls_flags delete_segments+append_list+independent_segments \
+-hls_segment_type mpegts \
+-start_number 1 \
 public/stream.m3u8
