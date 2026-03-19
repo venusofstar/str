@@ -72,7 +72,7 @@ app.get("/download", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Restream server running");
+  res.send("ENJOY YOUR LIFE");
 });
 
 app.listen(PORT, () => {
