@@ -6,17 +6,15 @@ import path from "path";
 const app = express();
 const PORT = process.env.PORT || 10000;
 
-// 🔥 Your streams
-const VIDEO = "https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_4500/chunklist_video.m3u8?hdnea=st=1773925442~exp=1773925482~acl=*hls/live/2001903/300024-317970/*!*hls/live/2001903-b/300024-317970-b/*~id=1ebf1215-7077-4f11-9ba3-e530c94f9e70~data=dWlkPWNGaDZGenw2YzcyNmIzMS03NDAxLTRkMDgtYWM1Zi1jNDFiOWFiYzU0NWUmaXA9MTEyLjIwMS45Ni4xMjYmZXhwPTE3NzQwMTE4ODImZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=1a409eafbdbbb38c5dd33c0a96f78e0317b0e242e5b326ae4420145eba316a76&opId=325&cc=PH&ua=TW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0OyBydjoxMzkuMCkgR2Vja28vMjAxMDAxMDEgRmlyZWZveC8xMzkuMA%3D%3D&sd=PH-METRO+MANILA&startTime=1772294400&endTime=1930147200";
-
-const AUDIO = "https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_4500/chunklist_audio.m3u8?hdnea=st=1773925442~exp=1773925482~acl=*hls/live/2001903/300024-317970/*!*hls/live/2001903-b/300024-317970-b/*~id=1ebf1215-7077-4f11-9ba3-e530c94f9e70~data=dWlkPWNGaDZGenw2YzcyNmIzMS03NDAxLTRkMDgtYWM1Zi1jNDFiOWFiYzU0NWUmaXA9MTEyLjIwMS45Ni4xMjYmZXhwPTE3NzQwMTE4ODImZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=1a409eafbdbbb38c5dd33c0a96f78e0317b0e242e5b326ae4420145eba316a76&opId=325&cc=PH&ua=TW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0OyBydjoxMzkuMCkgR2Vja28vMjAxMDAxMDEgRmlyZWZveC8xMzkuMA%3D%3D&sd=PH-METRO+MANILA&startTime=1772294400&endTime=1930147200";
+// ✅ Single master stream (audio + video already combined)
+const STREAM = "https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/playlist.m3u8?hdntl=exp=1774009069~acl=%2f*~id=6a43acf3-d130-4587-8bf3-b7e3de118f3d~data=hdntl,dWlkPWNGaDZGenw2YzcyNmIzMS03NDAxLTRkMDgtYWM1Zi1jNDFiOWFiYzU0NWUmaXA9MTEyLjIwMS45Ni4xMjYmZXhwPTE3NzQwMDkwOTcmZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=f817218623f2cb466d4ccbbf0f6976b55782ec69c13b29db9a89fbb559371d4a";
 
 const OUTPUT = "./stream";
 
 // Ensure folder exists
 if (!fs.existsSync(OUTPUT)) fs.mkdirSync(OUTPUT);
 
-// 🔥 Clean old HLS files (VERY IMPORTANT)
+// Clean old HLS files
 function cleanOutput() {
   try {
     fs.readdirSync(OUTPUT).forEach(file => {
@@ -27,7 +25,7 @@ function cleanOutput() {
   }
 }
 
-// 🔥 Start FFmpeg restream
+// Start FFmpeg
 function startStream() {
   cleanOutput();
 
@@ -35,26 +33,10 @@ function startStream() {
     "-fflags", "+genpts",
 
     "-headers", "User-Agent: Mozilla/5.0\r\nReferer: https://app.blasttv.ph/\r\n",
-    "-i", VIDEO,
+    "-i", STREAM,
 
-    "-headers", "User-Agent: Mozilla/5.0\r\nReferer: https://app.blasttv.ph/\r\n",
-    "-i", AUDIO,
-
-    "-map", "0:v:0",
-    "-map", "1:a:0",
-
-    // ✅ FIX SYNC (re-encode)
-    "-c:v", "libx264",
-    "-preset", "veryfast",
-    "-tune", "zerolatency",
-
-    "-c:a", "aac",
-    "-ar", "44100",
-    "-ac", "2",
-    "-af", "aresample=async=1:first_pts=0",
-
-    "-vsync", "1",
-    "-async", "1",
+    // ✅ No need to re-encode (already synced)
+    "-c", "copy",
 
     "-f", "hls",
     "-hls_time", "4",
@@ -76,40 +58,25 @@ function startStream() {
 
   ffmpeg.on("close", code => {
     console.log("FFmpeg stopped:", code);
-    setTimeout(startStream, 5000); // auto restart
+    setTimeout(startStream, 5000);
   });
 }
 
-// Start stream
+// Start
 startStream();
 
-// 🔥 Serve HLS
+// Serve HLS
 app.use("/live", express.static(OUTPUT));
 
-// 🔥 Download endpoint (fixed sync)
+// Download endpoint (simple copy)
 app.get("/download", (req, res) => {
   const file = "output.mp4";
 
   const ffmpeg = spawn("ffmpeg", [
-    "-fflags", "+genpts",
-
     "-headers", "User-Agent: Mozilla/5.0\r\nReferer: https://app.blasttv.ph/\r\n",
-    "-i", VIDEO,
+    "-i", STREAM,
 
-    "-headers", "User-Agent: Mozilla/5.0\r\nReferer: https://app.blasttv.ph/\r\n",
-    "-i", AUDIO,
-
-    "-map", "0:v:0",
-    "-map", "1:a:0",
-
-    "-c:v", "libx264",
-    "-preset", "veryfast",
-
-    "-c:a", "aac",
-    "-af", "aresample=async=1:first_pts=0",
-
-    "-shortest",
-
+    "-c", "copy",
     "-y",
     file
   ]);
@@ -119,7 +86,6 @@ app.get("/download", (req, res) => {
   });
 });
 
-// Root
 app.get("/", (req, res) => {
   res.send("ENJOY YOUR LIFE 🚀");
 });
