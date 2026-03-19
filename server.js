@@ -7,10 +7,9 @@ const app = express();
 const PORT = process.env.PORT || 10000;
 
 // 🔥 Your streams
-const VIDEO = "https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_4500/chunklist_video.m3u8?hdntl=exp=1774009069~acl=%2f*~id=6a43acf3-d130-4587-8bf3-b7e3de118f3d~data=hdntl,dWlkPWNGaDZGenw2YzcyNmIzMS03NDAxLTRkMDgtYWM1Zi1jNDFiOWFiYzU0NWUmaXA9MTEyLjIwMS45Ni4xMjYmZXhwPTE3NzQwMDkwOTcmZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=f817218623f2cb466d4ccbbf0f6976b55782ec69c13b29db9a89fbb559371d4a";
+const VIDEO = "https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_4500/chunklist_video.m3u8?hdnea=st=1773925442~exp=1773925482~acl=*hls/live/2001903/300024-317970/*!*hls/live/2001903-b/300024-317970-b/*~id=1ebf1215-7077-4f11-9ba3-e530c94f9e70~data=dWlkPWNGaDZGenw2YzcyNmIzMS03NDAxLTRkMDgtYWM1Zi1jNDFiOWFiYzU0NWUmaXA9MTEyLjIwMS45Ni4xMjYmZXhwPTE3NzQwMTE4ODImZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=1a409eafbdbbb38c5dd33c0a96f78e0317b0e242e5b326ae4420145eba316a76&opId=325&cc=PH&ua=TW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0OyBydjoxMzkuMCkgR2Vja28vMjAxMDAxMDEgRmlyZWZveC8xMzkuMA%3D%3D&sd=PH-METRO+MANILA&startTime=1772294400&endTime=1930147200";
 
-const AUDIO = "https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_4500/chunklist_audio.m3u8?hdntl=exp=1774009069~acl=%2f*~id=6a43acf3-d130-4587-8bf3-b7e3de118f3d~data=hdntl,dWlkPWNGaDZGenw2YzcyNmIzMS03NDAxLTRkMDgtYWM1Zi1jNDFiOWFiYzU0NWUmaXA9MTEyLjIwMS45Ni4xMjYmZXhwPTE3NzQwMDkwOTcmZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=f817218623f2cb466d4ccbbf0f6976b55782ec69c13b29db9a89fbb559371d4a";
-
+const AUDIO = "https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_4500/chunklist_audio.m3u8?hdnea=st=1773925442~exp=1773925482~acl=*hls/live/2001903/300024-317970/*!*hls/live/2001903-b/300024-317970-b/*~id=1ebf1215-7077-4f11-9ba3-e530c94f9e70~data=dWlkPWNGaDZGenw2YzcyNmIzMS03NDAxLTRkMDgtYWM1Zi1jNDFiOWFiYzU0NWUmaXA9MTEyLjIwMS45Ni4xMjYmZXhwPTE3NzQwMTE4ODImZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=1a409eafbdbbb38c5dd33c0a96f78e0317b0e242e5b326ae4420145eba316a76&opId=325&cc=PH&ua=TW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0OyBydjoxMzkuMCkgR2Vja28vMjAxMDAxMDEgRmlyZWZveC8xMzkuMA%3D%3D&sd=PH-METRO+MANILA&startTime=1772294400&endTime=1930147200";
 
 const OUTPUT = "./stream";
 
