@@ -7,9 +7,11 @@ const app = express();
 const PORT = process.env.PORT || 10000;
 
 // 🔥 Your streams
-const VIDEO = "https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_3000/chunklist_video.m3u8?hdntl=exp=1773917821~acl=/*~id=d2c47eee-97b1-4d84-9415-c541500147e9~data=hdntl,dWlkPW5VTkxWZnw3ZjAxZWMxNS1hMTQwLTRlZDMtODE2My1jOGQ1ZjMwZjg0Y2YmaXA9MTEyLjIwMS45Ni4xMjYmZXhwPTE3NzM5MTc4NTAmZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=cf356b536f8ec5f85d1a477942fd03ca39907ca7f9c5d9a2231b156d7bc7fd5f";
+const VIDEO = "https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_3000/chunklist_video.m3u8?hdntl=exp=1774007657~acl=%2f*~id=b978e039-09bf-4181-b4fe-beb08bdbe797~data=hdntl,dWlkPWNGaDZGenw2YzcyNmIzMS03NDAxLTRkMDgtYWM1Zi1jNDFiOWFiYzU0NWUmaXA9MTEyLjIwMS45Ni4xMjYmZXhwPTE3NzQwMDc2ODUmZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=573e2829fe4015c7c8e021c3d349d2998d16abec853093994a18e503e7303202";
 
-const AUDIO = "https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_4500/chunklist_audio.m3u8?hdntl=exp=1773917821~acl=/*~id=d2c47eee-97b1-4d84-9415-c541500147e9~data=hdntl,dWlkPW5VTkxWZnw3ZjAxZWMxNS1hMTQwLTRlZDMtODE2My1jOGQ1ZjMwZjg0Y2YmaXA9MTEyLjIwMS45Ni4xMjYmZXhwPTE3NzM5MTc4NTAmZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=cf356b536f8ec5f85d1a477942fd03ca39907ca7f9c5d9a2231b156d7bc7fd5f";
+const AUDIO = "https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_4500/chunklist_audio.m3u8?hdntl=exp=1774007657~acl=%2f*~id=b978e039-09bf-4181-b4fe-beb08bdbe797~data=hdntl,dWlkPWNGaDZGenw2YzcyNmIzMS03NDAxLTRkMDgtYWM1Zi1jNDFiOWFiYzU0NWUmaXA9MTEyLjIwMS45Ni4xMjYmZXhwPTE3NzQwMDc2ODUmZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=573e2829fe4015c7c8e021c3d349d2998d16abec853093994a18e503e7303202";
+
+
 
 const OUTPUT = "./stream";
 if (!fs.existsSync(OUTPUT)) fs.mkdirSync(OUTPUT);
