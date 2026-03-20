@@ -1,0 +1,91 @@
+import express from "express";
+import { spawn } from "child_process";
+import fs from "fs";
+import path from "path";
+
+const app = express();
+const PORT = process.env.PORT || 10000;
+
+// 🔥 Streams
+const STREAMS = {
+  main: "https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_3000/index.m3u8",
+  sportsone: "https://dice-live-ap.akamaized.net/hls/live/sportsone/300024-317970/exchange300024xokvd_300024_3000/index.m3u8"
+};
+
+const BASE_OUTPUT = "./streams";
+
+// Ensure base folder
+if (!fs.existsSync(BASE_OUTPUT)) fs.mkdirSync(BASE_OUTPUT);
+
+// Clean folder
+function cleanOutput(dir) {
+  try {
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir);
+    fs.readdirSync(dir).forEach(file => {
+      fs.unlinkSync(path.join(dir, file));
+    });
+  } catch (e) {
+    console.log("Clean error:", e.message);
+  }
+}
+
+// Start one stream
+function startStream(name, url) {
+  const outputDir = path.join(BASE_OUTPUT, name);
+
+  cleanOutput(outputDir);
+
+  const args = [
+    "-fflags", "+genpts",
+
+    "-headers", "User-Agent: Mozilla/5.0\r\nReferer: https://app.blasttv.ph/\r\n",
+    "-i", url,
+
+    "-c", "copy",
+
+    "-f", "hls",
+    "-hls_time", "4",
+    "-hls_list_size", "6",
+    "-hls_flags", "delete_segments+append_list",
+
+    "-reset_timestamps", "1",
+
+    path.join(outputDir, "index.m3u8")
+  ];
+
+  console.log(`Starting stream: ${name}`);
+
+  const ffmpeg = spawn("ffmpeg", args);
+
+  ffmpeg.stderr.on("data", data => {
+    console.log(`[${name}]`, data.toString());
+  });
+
+  ffmpeg.on("close", code => {
+    console.log(`Stream ${name} stopped:`, code);
+    setTimeout(() => startStream(name, url), 5000);
+  });
+}
+
+// Start all streams
+for (const [name, url] of Object.entries(STREAMS)) {
+  startStream(name, url);
+}
+
+// Serve all streams
+app.use("/live", express.static(BASE_OUTPUT));
+
+// Home
+app.get("/", (req, res) => {
+  res.send(`
+    <h2>Live Streams</h2>
+    <ul>
+      <li><a href="/live/main/index.m3u8">Main Stream</a></li>
+      <li><a href="/live/sportsone/index.m3u8">Sports One</a></li>
+    </ul>
+  `);
+});
+
+app.listen(PORT, () => {
+  console.log("Server running on port", PORT);
+});
