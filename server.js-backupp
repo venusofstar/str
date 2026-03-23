@@ -21,9 +21,9 @@ if (!fs.existsSync(OUTPUT)) fs.mkdirSync(OUTPUT);
 // 🔥 Start FFmpeg restream
 function startStream() {
   const args = [
-    "-headers", "User-Agent: Mozilla/5.0\r\nReferer: https://app.blasttv.ph/\r\n",
+    "-headers", "User-Agent: Mozilla/5.0\r\nReferer: https://mydramawave.com/\r\n",
     "-i", VIDEO,
-    "-headers", "User-Agent: Mozilla/5.0\r\nReferer: https://app.blasttv.ph/\r\n",
+    "-headers", "User-Agent: Mozilla/5.0\r\nReferer: https://mydramawave.com/\r\n",
     "-i", AUDIO,
     "-map", "0:v:0",
     "-map", "1:a:0",
@@ -59,9 +59,9 @@ app.get("/download", (req, res) => {
   const file = "output.mp4";
 
   const ffmpeg = spawn("ffmpeg", [
-    "-headers", "User-Agent: Mozilla/5.0\r\nReferer: https://app.blasttv.ph/\r\n",
+    "-headers", "User-Agent: Mozilla/5.0\r\nReferer: https://mydramawave.com/\r\n",
     "-i", VIDEO,
-    "-headers", "User-Agent: Mozilla/5.0\r\nReferer: https://app.blasttv.ph/\r\n",
+    "-headers", "User-Agent: Mozilla/5.0\r\nReferer: https://mydramawave.com/\r\n",
     "-i", AUDIO,
     "-map", "0:v:0",
     "-map", "1:a:0",
