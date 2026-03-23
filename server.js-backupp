@@ -6,10 +6,12 @@ import path from "path";
 const app = express();
 const PORT = process.env.PORT || 10000;
 
-// 🔥 Your streams
-const VIDEO = "https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_3000/chunklist_video.m3u8?hdntl=exp=1774009069~acl=%2f*~id=6a43acf3-d130-4587-8bf3-b7e3de118f3d~data=hdntl,dWlkPWNGaDZGenw2YzcyNmIzMS03NDAxLTRkMDgtYWM1Zi1jNDFiOWFiYzU0NWUmaXA9MTEyLjIwMS45Ni4xMjYmZXhwPTE3NzQwMDkwOTcmZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=f817218623f2cb466d4ccbbf0f6976b55782ec69c13b29db9a89fbb559371d4a";
 
-const AUDIO = "https://dice-live-ap.akamaized.net/hls/live/2001903/300024-317970/exchange300024xokvd_300024_4500/chunklist_audio.m3u8?hdntl=exp=1774009069~acl=%2f*~id=6a43acf3-d130-4587-8bf3-b7e3de118f3d~data=hdntl,dWlkPWNGaDZGenw2YzcyNmIzMS03NDAxLTRkMDgtYWM1Zi1jNDFiOWFiYzU0NWUmaXA9MTEyLjIwMS45Ni4xMjYmZXhwPTE3NzQwMDkwOTcmZWlkPTMwMDAyNCZjaWQ9ZGNlLnRhcGdvJm9pZD0zMjUmdHlwZT1MSVZF~hmac=f817218623f2cb466d4ccbbf0f6976b55782ec69c13b29db9a89fbb559371d4a";
+// 🔥 Your streams
+
+const VIDEO = "https://video-v6.mydramawave.com/vt/e8d93b0d-4015-4dd0-b79b-bc93a433c005/37_61691145-ae17-42c2-953b-3154375adadc_transcode_1309546_adaptiveDynamicStreaming_1529555_4.m3u8";
+
+const AUDIO = "https://video-v6.mydramawave.com/vt/e8d93b0d-4015-4dd0-b79b-bc93a433c005/tl-PH-c0e43b12-1c42-4027-8f48-040ed9af9d73/tl-PH-2ca449d8-c8a3-4431-a249-70cc54c2550f.m3u8";
 
 
 
