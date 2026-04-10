@@ -6,7 +6,9 @@ import path from "path";
 const app = express();
 const PORT = process.env.PORT || 10000;
 
-// 🔥 Episodes
+// ==========================
+// 🎬 EPISODES
+// ==========================
 const EPISODES = {
   ep1: {
     video: "https://video-v6.mydramawave.com/vt/cef4ab6a-f5d0-42be-87ca-583cadf17fba/1_417e78f3-50b1-4bf6-bc2e-9d5bc3801084_transcode_1309546_adaptiveDynamicStreaming_1529555_4.m3u8",
@@ -19,19 +21,31 @@ const EPISODES = {
   ep3: {
     video: "https://video-v81.mydramawave.com/vt/49efe663-0158-498a-953f-199c7dc6baf3/5_254e6203-4fda-4c10-905c-0de3371d0d4d_transcode_1309546_adaptiveDynamicStreaming_1529555_4.m3u8",
     audio: "https://video-v81.mydramawave.com/vt/49efe663-0158-498a-953f-199c7dc6baf3/tl-PH-863eb709-b9ef-43b7-93e6-94d4514a175e/tl-PH-96acd809-4121-4e43-873b-78f6708bb659.m3u8"
+  },
+  ep4: {
+    video: "https://video-v6.mydramawave.com/vt/11c1e24c-ba69-45d7-8fec-d868a021263d/6_9c9b1601-0390-4019-a3ec-7106be4852fa_transcode_1309546_adaptiveDynamicStreaming_1529555_4.m3u8",
+    audio: "https://video-v6.mydramawave.com/vt/11c1e24c-ba69-45d7-8fec-d868a021263d/tl-PH-71cc7843-8a04-4be8-86ff-3480dc732d40/tl-PH-fdf36565-801c-437d-a277-ab2476624690.m3u8"
+  },
+  ep5: {
+    video: "https://video-v6.mydramawave.com/vt/1a9514ac-48f1-4f72-9e7b-567736833131/7_b3402287-e086-4f5e-9dd2-a7daf5aecfcf_transcode_1309546_adaptiveDynamicStreaming_1529555_4.m3u8",
+    audio: "https://video-v6.mydramawave.com/vt/1a9514ac-48f1-4f72-9e7b-567736833131/tl-PH-b1651951-3671-4c05-af1e-cfdf21fe02ad/tl-PH-3cd96374-26fc-426a-9e2f-8071927c2a61.m3u8"
   }
 };
 
-// 🔥 Output folder
+// ==========================
+// 📁 OUTPUT
+// ==========================
 const OUTPUT = "./streams";
 if (!fs.existsSync(OUTPUT)) fs.mkdirSync(OUTPUT);
 
-// 🔥 Running processes
+// ==========================
+// 🔥 RUNNING PROCESSES
+// ==========================
 const running = {};
 
-// ================================
-// 🚀 START STREAM (VOD MODE FIXED)
-// ================================
+// ==========================
+// 🚀 START STREAM (VOD MODE)
+// ==========================
 function startStream(ep) {
   if (running[ep]) return;
 
@@ -41,35 +55,35 @@ function startStream(ep) {
   const dir = path.join(OUTPUT, ep);
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 
-  console.log(`🚀 Starting VOD stream: ${ep}`);
+  console.log(`🚀 Starting VOD: ${ep}`);
 
   const ffmpegArgs = [
     "-loglevel", "error",
 
-    // 🔥 reconnect for stability
+    // reconnect
     "-reconnect", "1",
     "-reconnect_streamed", "1",
     "-reconnect_delay_max", "5",
 
-    // 🔥 headers
+    // input video/audio
     "-headers", "User-Agent: Mozilla/5.0\r\nReferer: https://mydramawave.com/\r\n",
     "-i", stream.video,
 
     "-headers", "User-Agent: Mozilla/5.0\r\nReferer: https://mydramawave.com/\r\n",
     "-i", stream.audio,
 
-    // 🔥 mapping
+    // mapping
     "-map", "0:v:0",
     "-map", "1:a:0",
 
-    // 🔥 copy video (fast) + encode audio
+    // encode settings
     "-c:v", "copy",
     "-c:a", "aac",
     "-b:a", "128k",
 
-    // =====================================
-    // ✅ VOD MODE (IMPORTANT FIX)
-    // =====================================
+    // ==========================
+    // ✅ VOD MODE FIX
+    // ==========================
     "-f", "hls",
     "-hls_time", "4",
     "-hls_list_size", "0",
@@ -87,43 +101,40 @@ function startStream(ep) {
 
   running[ep] = ffmpeg;
 
-  ffmpeg.stderr.on("data", (data) => {
-    console.log(`[${ep}] ${data.toString()}`);
+  ffmpeg.stderr.on("data", (d) => {
+    console.log(`[${ep}] ${d.toString()}`);
   });
 
   ffmpeg.on("close", () => {
-    console.log(`❌ ${ep} stopped. Restarting...`);
+    console.log(`❌ Restarting ${ep}...`);
     running[ep] = null;
     setTimeout(() => startStream(ep), 3000);
   });
 }
 
-// ================================
-// 🚀 LAZY START (BETTER THAN AUTO ALL)
-// ================================
-app.get("/play/:ep", (req, res) => {
-  const ep = req.params.ep;
+// ==========================
+// 🚀 AUTO START ALL EPISODES
+// ==========================
+function bootAll() {
+  Object.keys(EPISODES).forEach((ep, i) => {
+    setTimeout(() => startStream(ep), i * 1500);
+  });
+}
 
-  if (!EPISODES[ep]) {
-    return res.status(404).send("Episode not found");
-  }
+bootAll();
 
-  startStream(ep);
-  res.redirect(`/live/${ep}/index.m3u8`);
-});
-
-// ================================
-// 📁 SERVE STREAM FILES
-// ================================
+// ==========================
+// 📡 SERVE HLS FILES
+// ==========================
 app.use("/live", express.static(OUTPUT, {
   setHeaders: (res) => {
     res.setHeader("Cache-Control", "no-store");
   }
 }));
 
-// ================================
-// 🎬 M3U PLAYLIST
-// ================================
+// ==========================
+// 🎬 PLAYLIST
+// ==========================
 app.get("/playlist.m3u", (req, res) => {
   const base = `${req.protocol}://${req.get("host")}`;
 
@@ -131,49 +142,23 @@ app.get("/playlist.m3u", (req, res) => {
 
   Object.keys(EPISODES).forEach((ep, i) => {
     m3u += `#EXTINF:-1 tvg-id="${ep}" group-title="Drama",Episode ${i + 1}\n`;
-    m3u += `${base}/play/${ep}\n\n`;
+    m3u += `${base}/live/${ep}/index.m3u8\n\n`;
   });
 
   res.setHeader("Content-Type", "application/x-mpegURL");
   res.send(m3u);
 });
 
-// ================================
-// 📥 DOWNLOAD MP4 (OPTIONAL)
-// ================================
-app.get("/download/:ep", (req, res) => {
-  const ep = req.params.ep;
-  const stream = EPISODES[ep];
-
-  if (!stream) return res.status(404).send("Invalid episode");
-
-  const file = path.join(OUTPUT, `${ep}.mp4`);
-
-  const ffmpeg = spawn("ffmpeg", [
-    "-i", stream.video,
-    "-i", stream.audio,
-    "-map", "0:v:0",
-    "-map", "1:a:0",
-    "-c", "copy",
-    "-movflags", "+faststart",
-    file
-  ]);
-
-  ffmpeg.on("close", () => {
-    res.download(file);
-  });
-});
-
-// ================================
+// ==========================
 // 🏠 ROOT
-// ================================
+// ==========================
 app.get("/", (req, res) => {
-  res.send("🚀 VOD IPTV Server Running (FIXED MODE)");
+  res.send("🚀 VOD IPTV SERVER RUNNING (ALL EPISODES ACTIVE)");
 });
 
-// ================================
+// ==========================
 // 🚀 START SERVER
-// ================================
+// ==========================
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
 });
