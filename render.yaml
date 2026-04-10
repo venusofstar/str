@@ -1,7 +1,8 @@
 services:
   - type: web
-    name: restream-server
+    name: vod-server
     env: node
-    plan: free
-    buildCommand: npm install
-    startCommand: npm start
+    buildCommand: |
+      apt-get update && apt-get install -y ffmpeg
+      npm install
+    startCommand: node index.js
