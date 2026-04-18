@@ -10,8 +10,8 @@ const PORT = process.env.PORT || 10000;
 // 🔥 Episodes
 const EPISODES = {
 ep1: {
-  video: "https://video-v81.mydramawave.com/vt/c43636c8-25e1-4cfa-ab46-e996cca26587/360_0/1_4f45b546-e7db-47a7-a37f-d874ad762606_transcode_1309546_adaptiveDynamicStreaming_1307828_transcode_1581789.m3u8",
-  audio: "https://video-v81.mydramawave.com/vt/c43636c8-25e1-4cfa-ab46-e996cca26587/tl-PH-ce5fefd4-9cb3-4f5f-b390-3ddc96e3128a/tl-PH-c7c9da0f-5947-4bec-a035-463d5a7ac055.m3u8"
+  video: "https://video-v81.mydramawave.com/vt/6ea21a99-5fe3-489c-880d-1b6c895cce35/1_7d075700-84e9-4d9f-ae8b-fac65bd0f7d8_transcode_1309546_adaptiveDynamicStreaming_1529555_4.m3u8",
+  audio: ""
 },
 
 ep2: {
@@ -21,7 +21,7 @@ ep2: {
 
 ep3: {
   video: "https://video-v6.mydramawave.com/vt/ac57f15b-6d7e-421c-a5ec-7e91c92268c4/360_0/3_0a23e06c-51ab-4f96-b41a-813b04e5838e_transcode_1309546_adaptiveDynamicStreaming_1307828_transcode_1581789.m3u8",
-  audio: "https://video-v6.mydramawave.com/vt/ac57f15b-6d7e-421c-a5ec-7e91c92268c4/tl-PH-ee6eed38-9aa7-49bb-9575-9b623f8733cd/tl-PH-45da2fa6-3ec6-48b2-930a-0b8c2fed0a5b.m3u8"
+  audio: "h7f15b-6d7e-421c-a5ec-7e91c92268c4/tl-PH-ee6eed38-9aa7-49bb-9575-9b623f8733cd/tl-PH-45da2fa6-3ec6-48b2-930a-0b8c2fed0a5b.m3u8"
 },
 
 ep4: {
