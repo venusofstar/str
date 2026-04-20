@@ -16,7 +16,7 @@ ep1: {
 
 ep2: {
   video: "https://video-v81.mydramawave.com/vt/22ea21f0-c460-4e05-906e-53a951dc9814/2_e53084da-5ba9-43bc-8bb0-be6b4eb7acd7_transcode_1309546_adaptiveDynamicStreaming_1529555_4.m3u8",
-  audio: ""
+  audio: "https://video-v81.mydramawave.com/vt/22ea21f0-c460-4e05-906e-53a951dc9814/tl-PH-12f6e737-27ee-4769-b47f-ab66aa0a1f9f/tl-PH-54709e9a-6c8d-4c60-9643-395bf5d87d52.m3u8"
 },
 
 ep3: {
