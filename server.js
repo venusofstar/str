@@ -55,8 +55,8 @@ ep9: {
 },
 
 ep10: {
-  video: "https://video-v6.mydramawave.com/vt/75ae6dc6-337d-4363-ac69-4bc63f2f5e4d/360_0/fbd2480e-8e20-43ef-834d-ac45a59d73bc_transcode_1309546_adaptiveDynamicStreaming_1307828_transcode_1581789.m3u8",
-  audio: "https://video-v6.mydramawave.com/vt/75ae6dc6-337d-4363-ac69-4bc63f2f5e4d/tl-PH-8654b668-7551-4eb8-a17a-017dbb9f3a4e/tl-PH-ed1afb90-7ebb-43ce-a412-a1ad51f4db58.m3u8"
+  video: "https://video-v81.mydramawave.com/vt/32fec9bc-26ab-4cd9-89af-b9984cb1c5c0/360_0/726421c2-9b44-43bf-832d-a7df1fda146e_transcode_1309546_adaptiveDynamicStreaming_1307828_transcode_1581789.m3u8",
+  audio: "https://video-v81.mydramawave.com/vt/32fec9bc-26ab-4cd9-89af-b9984cb1c5c0/tl-PH-392d1553-cb44-4193-85f4-08d604acb509/tl-PH-3f830193-ed28-43be-8c20-4a386b597181.m3u8"
 }  
 };
 
