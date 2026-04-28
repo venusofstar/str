@@ -133,7 +133,7 @@ ep21: {
   },
 
   ep26: {
-    video: "https://video-v81.mydramawave.com/vt/e5786d1b-cc62-48cb-bebb-86191fb1493f/360_0/26_240a0956-0645-4112-bb68-881cc258b45c_transcode_1309546_adaptiveDynamicStreaming_1307828_transcode_1581789.m3u8",
+    video: "https://video-v81.mydramawave.com/vt/e5786d1b-cc62-48cb-bebb-86191fb1493f/360_0/26_240a0956-0641-4112-bb68-881cc258b45c_transcode_1309546_adaptiveDynamicStreaming_1307828_transcode_1581789.m3u8",
     audio: "https://video-v81.mydramawave.com/vt/e5786d1b-cc62-48cb-bebb-86191fb1493f/tl-PH-c299a835-6c19-417d-840d-cef15c9c1367/tl-PH-64c161ae-f3a9-4fa8-ab9a-de6d4ef9a935.m3u8"
   },
 
