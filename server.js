@@ -105,6 +105,55 @@ ep19: {
 ep20: {
   video: "https://video-v81.mydramawave.com/vt/1bfc7392-0d5c-4247-a3fd-fe9899244a28/360_0/20_f14a840a-097d-451a-a60c-677ec9440f9c_transcode_1309546_adaptiveDynamicStreaming_1307828_transcode_1581789.m3u8",
   audio: "https://video-v81.mydramawave.com/vt/1bfc7392-0d5c-4247-a3fd-fe9899244a28/tl-PH-9a83ac48-b0ed-43e2-9b95-40c50d640b76/tl-PH-5f3bfe2f-4af9-43af-8c03-d8ff918eb70f.m3u8"
+},
+  ep21: {
+  video: "https://video-v6.mydramawave.com/vt/4c24c163-a983-4fe9-b912-c060414e7955/360_0/21_7a2055f3-cee1-45da-9a29-d999eee81296_transcode_1309546_adaptiveDynamicStreaming_1307828_transcode_1581789.m3u8",
+  audio: "https://video-v6.mydramawave.com/vt/4c24c163-a983-4fe9-b912-c060414e7955/tl-PH-f206ec03-45fe-4f1f-903d-955a35cbd864/tl-PH-b137afde-fea5-4ace-b780-4c84a65bda4c.m3u8"
+},
+
+ep22: {
+  video: "https://video-v6.mydramawave.com/vt/2b4d0f8f-a882-49ca-956f-b85cfe511ae5/360_0/22_5e41354a-b15a-44b4-8da1-feb5e7076589_transcode_1309546_adaptiveDynamicStreaming_1307828_transcode_1581789.m3u8",
+  audio: "https://video-v6.mydramawave.com/vt/2b4d0f8f-a882-49ca-956f-b85cfe511ae5/tl-PH-dff0ae80-c974-4b63-af72-39586c942374/tl-PH-13cd4da5-1a4c-4af0-8fd6-bcda31e529af.m3u8"
+},
+
+ep23: {
+  video: "https://video-v81.mydramawave.com/vt/48e5cd8d-03bd-441d-ac3e-292c79ef998f/360_0/23_a2b807fc-8d7d-4d47-89ec-f3f58502fc43_transcode_1309546_adaptiveDynamicStreaming_1307828_transcode_1581789.m3u8",
+  audio: "https://video-v81.mydramawave.com/vt/48e5cd8d-03bd-441d-ac3e-292c79ef998f/tl-PH-34996e8d-bd20-4554-8f6f-1c1d51229ded/tl-PH-3f2e5bb5-d8ca-4a5d-8c37-1ce708dc9480.m3u8"
+},
+
+ep24: {
+  video: "https://video-v81.mydramawave.com/vt/9b542b96-0d91-40e7-aa44-6358e9db83a8/360_0/24_c4423b20-7da0-4583-8169-ee8ccd007ad9_transcode_1309546_adaptiveDynamicStreaming_1307828_transcode_1581789.m3u8",
+  audio: "https://video-v81.mydramawave.com/vt/9b542b96-0d91-40e7-aa44-6358e9db83a8/tl-PH-b6ee1970-a762-4a2e-8723-b25454648a51/tl-PH-ccc279a3-03ef-4383-bbf1-79db4d0a452f.m3u8"
+},
+
+ep25: {
+  video: "https://video-v81.mydramawave.com/vt/cdece4fa-d0ce-42e6-bc0b-bad15d36d1b4/360_0/25_c2c0a698-b1c2-4a2b-baad-44f7f756b5b0_transcode_1309546_adaptiveDynamicStreaming_1307828_transcode_1581789.m3u8",
+  audio: "https://video-v81.mydramawave.com/vt/cdece4fa-d0ce-42e6-bc0b-bad15d36d1b4/tl-PH-b0e69366-db77-4975-8fe8-e8417215d989/tl-PH-f4da2746-080f-4eb4-86fd-a32b1a867c0c.m3u8"
+},
+
+ep26: {
+  video: "https://video-v81.mydramawave.com/vt/41d698b8-994b-4a9d-a37e-bbeb6b6dc2b0/360_0/26_d523cded-9eb6-4aa1-891a-2bba1d3a33e1_transcode_1309546_adaptiveDynamicStreaming_1307828_transcode_1581789.m3u8",
+  audio: "https://video-v81.mydramawave.com/vt/41d698b8-994b-4a9d-a37e-bbeb6b6dc2b0/tl-PH-2f471ca3-1f8f-4e93-9a0e-90e0e9642a5f/tl-PH-b73ddd22-5bc5-483c-a373-fc1f45d8bca0.m3u8"
+},
+
+ep27: {
+  video: "https://video-v81.mydramawave.com/vt/f76ab98a-f1a0-4948-9fe1-7cc5661da844/360_0/27_6545df9a-bc4a-4a70-b9e6-b0a1538d0a3a_transcode_1309546_adaptiveDynamicStreaming_1307828_transcode_1581789.m3u8",
+  audio: "https://video-v81.mydramawave.com/vt/f76ab98a-f1a0-4948-9fe1-7cc5661da844/tl-PH-a72e52ee-c5a4-458d-92f3-09c3d8594a58/tl-PH-61bfc43b-56de-47f6-a593-b1a47074e959.m3u8"
+},
+
+ep28: {
+  video: "https://video-v6.mydramawave.com/vt/627b0b95-eaac-4c95-84af-c8180c2ff1c8/360_0/28_f3a5b19c-7612-46f9-99a0-1feacc5fc09c_transcode_1309546_adaptiveDynamicStreaming_1307828_transcode_1581789.m3u8",
+  audio: "https://video-v6.mydramawave.com/vt/627b0b95-eaac-4c95-84af-c8180c2ff1c8/tl-PH-5179c0a9-4e87-4500-81cf-60b22c2b4737/tl-PH-416e6cf8-558d-440e-9378-9f559dee30dd.m3u8"
+},
+
+ep29: {
+  video: "https://video-v6.mydramawave.com/vt/dec84347-9c3a-4222-83cf-0862734ac616/360_0/29_a4806d90-ae8a-4f6e-b1bb-17a1f1f99591_transcode_1309546_adaptiveDynamicStreaming_1307828_transcode_1581789.m3u8",
+  audio: "https://video-v6.mydramawave.com/vt/dec84347-9c3a-4222-83cf-0862734ac616/tl-PH-9edfbc61-71a0-4bf4-9445-55b8c5a44470/tl-PH-431e52ae-018a-4630-bdb2-871333c612b9.m3u8"
+},
+
+ep30: {
+  video: "https://video-v6.mydramawave.com/vt/0f9ff87f-2abc-4edf-93a5-fca270424300/360_0/30_b9319bb7-23c8-4959-b463-f8b1b9e58db1_transcode_1309546_adaptiveDynamicStreaming_1307828_transcode_1581789.m3u8",
+  audio: "https://video-v6.mydramawave.com/vt/0f9ff87f-2abc-4edf-93a5-fca270424300/tl-PH-9f808199-44bf-4b71-8de3-78ae1d697bd8/tl-PH-f4757691-4fda-4818-a8a0-1a59176caae9.m3u8"
 }
 };
 
