@@ -8,9 +8,9 @@ const PORT = process.env.PORT || 10000;
 
 // 🔥 Episodes
 const EPISODES = {
-ep1: {
-  video: "https://video-v6.mydramawave.com/vt/78322b41-5587-45cc-b1c6-7f3e6a34fd96/360_0/1_e99a29ec-c7d4-44f8-8564-537d6940b5ce_transcode_1309546_adaptiveDynamicStreaming_1519065_transcode_1581789.m3u8",
-  audio: "https://video-v6.mydramawave.com/vt/78322b41-5587-45cc-b1c6-7f3e6a34fd96/tl-PH-490ce371-4d8d-44f1-88b9-4cbeb18bb075/tl-PH-696965a2-d9d2-498b-85a7-dbf282e4ac65.m3u8"
+super: {
+  video: "https://vod3.cf.dmcdn.net/sec2(w_yWO_KDLP5JZtCbn1eAMj6-nMZ5RjcnF8pvj6yArylC3eJcHhMvozivAaA2o0oPgofoOxr8_J7bGTY0BMLE849WP1Fyz5GIGHbgdssxSuwSqE0BTBjsNyIyrYN6CcwKG0pXATpVikps7o2Oztnvx0lCRnflqiyxphGz1ErzqJ_89QaygUQb4UG4Cxo0-rOlAktsbupOlV3I36gDJVocEQ)/video/fmp4/648539110/h264_sd_vert/2/manifest.m3u8#cell=cf3",
+  audio: "https://vod3.cf.dmcdn.net/sec2(Bf0Rk-2UDGXJrwPfx7ZwECm7IvrHGtctKOltiAz0KCppRhO1ywLeT0nqFkEsb-FQct6nN6fYVRmJkXpMuPqIbddBwKsl2AfTYIXrX8ab8cVjFK0WrLO2sCdtZ8XjCWhBtPcOG97rNEHmQKjCEm3HjfHWGtOki_K3xS2G7sRkOopoA6JO7q0PEXhtn3Mqn7ISPPAw6B0ko_1zuLnWyreXmg)/video/fmp4/648539110/aac_q1_0/manifest.m3u8"
 },
 
 ep2: {
